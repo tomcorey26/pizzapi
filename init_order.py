@@ -1,23 +1,30 @@
 from pizzapy import *
 
-#create init function that starts it all
+# #create init function that starts it all
 
-#TODO make this into a function
-#error handling
-firstName = input("First Name: ")
-lastName = input("Last Name: ")
-email = input ("Email: ")
-number = input ("Phone number: ")
-address = input ("Address: ")
-print("\n")
+# #TODO make this into a function
+# #error handling
+def initCustomer():
+  firstName = input("First Name: ")
+  lastName = input("Last Name: ")
+  email = input ("Email: ")
+  number = input ("Phone number: ")
+  address = input ("Address: ")
+  print("\n")
+
+  customer = Customer(firstName, lastName, email, number, address)
+
+  return customer
+
+def initOrder(customer):
+  my_local_dominos = StoreLocator.find_closest_store_to_customer(customer)
+  
 
 
-customer = Customer(firstName, lastName, email, number, address)
 
-my_local_dominos = StoreLocator.find_closest_store_to_customer(customer)
-
-print("Your local dominos is: \n")
-print(my_local_dominos)
+def printDominos(my_local_dominos):
+  print("Your local dominos is: \n")
+  print(my_local_dominos)
 
 menu = my_local_dominos.get_menu()
 
@@ -26,10 +33,10 @@ order = Order.begin_customer_order(customer, my_local_dominos)
 search = ''
 
 
-#TODO make function for order
-#TODO have error handling for order
-#make recursive to repeat order?
-#make loop completely stop when done is entered
+# #TODO make function for order
+# #TODO have error handling for order
+# #make recursive to repeat order?
+# #make loop completely stop when done is entered
 while search != 'done':
   search = input("Search for item (Enter 'done' to exit): ")
   print("Search results for " + search)
@@ -61,3 +68,11 @@ if option == 'c':
 # order.place(card)
 
 # my_local_dominos.place_order(order, card)
+
+def main():
+  customer = initCustomer()
+  print("test")
+
+
+if __name__== "__main__":
+  main()
