@@ -37,7 +37,7 @@ search = ''
 # #TODO have error handling for order
 # #make recursive to repeat order?
 # #make loop completely stop when done is entered
-#fdafds
+#added functions
 while search != 'done':
   search = input("Search for item (Enter 'done' to exit): ")
   print("Search results for " + search)
