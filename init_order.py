@@ -1,18 +1,29 @@
 from pizzapy import *
 
+class Pizza:
+  def __init__(self,customer,store,menu,order,card):
+    self.customer = customer
+    self.store = store
+    self.menu = menu
+    self.order = order
+    self.card = card
 
-#TODO error handling
-def initCustomer():
-  firstName = input("First Name: ")
-  lastName = input("Last Name: ")
-  email = input ("Email: ")
-  number = input ("Phone number: ")
-  address = input ("Address: ")
-  print("\n")
+  #TODO error handling
+  def initCustomer(self):
+    firstName = input("First Name: ")
+    lastName = input("Last Name: ")
+    email = input ("Email: ")
+    number = input ("Phone number: ")
+    address = input ("Address: ")
+    print("\n")
 
-  customer = Customer(firstName, lastName, email, number, address)
+    self.customer = Customer(firstName, lastName, email, number, address)
 
-  return customer
+    return self.customer
+  
+  def printCustomer(self):
+    print(self.customer)
+    return
 
 def printLocalStore(my_local_dominos):
   print("Your local dominos is: \n")
@@ -64,30 +75,35 @@ def initCard():
 
 
 def main():
-  #Get customer information
-  customer = initCustomer()
 
-  #Find local Dominos, get menu, and begin order
-  my_local_dominos, menu, order = initOrder(customer)
+  thePizza = Pizza('','','','','')
+  thePizza.initCustomer()
+  thePizza.printCustomer()
 
-  #Search for items from menu and add to order
-  order = addtoOrder(order, menu)
-  print("Here is your order: ")
-  print(order.data['Products'])
+  # #Get customer information
+  # customer = initCustomer()
 
-  #Choose between pick up or delivery
-  order = obtainMethod(order)
-  print(order)
+  # #Find local Dominos, get menu, and begin order
+  # my_local_dominos, menu, order = initOrder(customer)
 
-  #Get credit card information
-  card = initCard()
+  # #Search for items from menu and add to order
+  # order = addtoOrder(order, menu)
+  # print("Here is your order: ")
+  # print(order.data['Products'])
 
-  # Uncomment these to actually place order
+  # #Choose between pick up or delivery
+  # order = obtainMethod(order)
+  # print(order)
 
-  # order.place(card)
-  # my_local_dominos.place_order(order, card)
+  # #Get credit card information
+  # card = initCard()
 
-  print("test")
+  # # Uncomment these to actually place order
+
+  # # order.place(card)
+  # # my_local_dominos.place_order(order, card)
+
+  # print("test")
 
 
 if __name__== "__main__":
