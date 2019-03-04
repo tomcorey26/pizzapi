@@ -104,6 +104,15 @@ class Pizza:
 
     return
   
+  def printSummary(self):
+    print("Order Summary: ")
+    self.printCustomer()
+    self.printLocalStore()
+    self.printOrder()
+    self.printObtainMethod()
+    self.printCard()
+
+    return
 
 
 
@@ -118,6 +127,7 @@ def main():
   thePizza.printObtainMethod()
   thePizza.initCard()
   thePizza.printCard()
+  thePizza.printSummary()
 
   # #Get customer information
   # customer = initCustomer()
