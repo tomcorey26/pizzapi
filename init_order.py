@@ -113,6 +113,10 @@ class Pizza:
     self.printCard()
 
     return
+  
+  def placeOrder(self):
+    self.order.place(self.card)
+    self.store.place_order(self.order,self.card)
 
 
 
@@ -129,30 +133,9 @@ def main():
   thePizza.printCard()
   thePizza.printSummary()
 
-  # #Get customer information
-  # customer = initCustomer()
+  #uncomment to actually order
+  # thePizza.placeOrder()
 
-  # #Find local Dominos, get menu, and begin order
-  # my_local_dominos, menu, order = initOrder(customer)
-
-  # #Search for items from menu and add to order
-  # order = addtoOrder(order, menu)
-  # print("Here is your order: ")
-  # print(order.data['Products'])
-
-  # #Choose between pick up or delivery
-  # order = obtainMethod(order)
-  # print(order)
-
-  # #Get credit card information
-  # card = initCard()
-
-  # # Uncomment these to actually place order
-
-  # # order.place(card)
-  # # my_local_dominos.place_order(order, card)
-
-  # print("test")
 
 
 if __name__== "__main__":
