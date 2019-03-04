@@ -8,6 +8,7 @@ class Pizza:
     self.order = order
     self.card = card
     self.orderList = [];
+    self.method = ''
 
   #TODO error handling
   def initCustomer(self):
@@ -76,9 +77,19 @@ class Pizza:
   def obtainMethod(self):
     option = input("Carryout or Delivery (c/d): ")
     if option == 'c':
+      self.method = 'Carryout'
       self.order.changeToCarryout()
+    else:
+      self.method = 'Delivery'
+
   
-  
+  def printObtainMethod(self):
+    print("Your obtain Method is")
+    print(self.method)
+
+    return
+
+
 
 def initCard():
   card = input("Enter credit card number: ")
@@ -99,6 +110,7 @@ def main():
   thePizza.initOrder()
   thePizza.addtoOrder()
   thePizza.obtainMethod()
+  thePizza.printObtainMethod()
 
   # #Get customer information
   # customer = initCustomer()
