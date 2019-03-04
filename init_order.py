@@ -48,26 +48,30 @@ class Pizza:
     search = ''
     while search != 'done':
       search = input("Search for item (Enter 'done' to exit): ")
-      print("Search results for " + search)
-      print("\n")
-      self.menu.search(Name=search)
-      print("\n")
-      
-      confirm = input("Would you like to add anything to your order? (y/n): ")
-      if confirm == 'y':
-        name = input('Enter the name of the item you would like to add (to keep track of order): ') 
-        item = input('Enter the code of the item you would like to add: ')
-        self.orderList.append(name)
-        self.order.add_item(item)
+      if search != 'done':
+        print("Search results for " + search)
+        print("\n")
+        self.menu.search(Name=search)
+        print("\n")
+        
+        confirm = input("Would you like to add anything to your order? (y/n): ")
+        if confirm == 'y':
+          name = input('Enter the name of the item you would like to add (to keep track of order): ') 
+          item = input('Enter the code of the item you would like to add: ')
+          self.orderList.append(name)
+          self.order.add_item(item)
     
-    print(self.orderList)
+    self.printOrder()
     
     return
 
 # # TODO print how much it costs
-# def printOrder(self):
-#   print("Here is your current order:")
-#   for x in self.orderList
+  def printOrder(self):
+    print("Here is your current order:")
+    for x in self.orderList:
+      print(x)
+    
+    return
 
 def obtainMethod(order):
   option = input("Carryout or Delivery (c/d): ")
