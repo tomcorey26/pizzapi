@@ -73,10 +73,12 @@ class Pizza:
     
     return
 
-def obtainMethod(order):
-  option = input("Carryout or Delivery (c/d): ")
-  if option == 'c':
-    order.changeToCarryout()
+  def obtainMethod(self):
+    option = input("Carryout or Delivery (c/d): ")
+    if option == 'c':
+      self.order.changeToCarryout()
+  
+  
 
 def initCard():
   card = input("Enter credit card number: ")
@@ -96,6 +98,7 @@ def main():
   thePizza.printCustomer()
   thePizza.initOrder()
   thePizza.addtoOrder()
+  thePizza.obtainMethod()
 
   # #Get customer information
   # customer = initCustomer()
