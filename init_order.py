@@ -25,18 +25,19 @@ class Pizza:
     print(self.customer)
     return
 
-def printLocalStore(my_local_dominos):
-  print("Your local dominos is: \n")
-  print(my_local_dominos)
+  def initOrder(self):
+    self.store = StoreLocator.find_closest_store_to_customer(self.customer)
+    self.printLocalStore(self.store)
+    self.menu = self.store.get_menu()
+    print("Starting order for your location....")
+    self.order = Order.begin_customer_order(self.customer, self.store)
 
-def initOrder(customer):
-  my_local_dominos = StoreLocator.find_closest_store_to_customer(customer)
-  printLocalStore(my_local_dominos)
-  menu = my_local_dominos.get_menu()
-  print("Starting order for your location....")
-  order = Order.begin_customer_order(customer, my_local_dominos)
+    return 
 
-  return my_local_dominos, menu, order
+  def printLocalStore(self,store):
+    print("Your local dominos is: \n")
+    print(self.store)
+    return
 
 
 # TODO have error handling for order
@@ -79,6 +80,7 @@ def main():
   thePizza = Pizza('','','','','')
   thePizza.initCustomer()
   thePizza.printCustomer()
+  thePizza.initOrder()
 
   # #Get customer information
   # customer = initCustomer()
