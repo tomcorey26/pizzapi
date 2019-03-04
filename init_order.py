@@ -82,24 +82,29 @@ class Pizza:
     else:
       self.method = 'Delivery'
 
-  
   def printObtainMethod(self):
     print("Your obtain Method is")
     print(self.method)
 
     return
 
+  def initCard(self):
+    card = input("Enter credit card number: ")
+    exp = input("Enter expiration: ")
+    security = input("Enter Security code: ")
+    billing = input("Enter billing ZIP: ")
 
+    self.card = CreditCard(card, exp, security, billing)
 
-def initCard():
-  card = input("Enter credit card number: ")
-  exp = input("Enter expiration: ")
-  security = input("Enter Security code: ")
-  billing = input("Enter billing ZIP: ")
+    return self.card
+  
+  def printCard(self):
+    print("Your Card info is:")
+    print(self.card)
 
-  card = CreditCard(card, exp, security, billing)
+    return
+  
 
-  return card
 
 
 def main():
@@ -111,6 +116,8 @@ def main():
   thePizza.addtoOrder()
   thePizza.obtainMethod()
   thePizza.printObtainMethod()
+  thePizza.initCard()
+  thePizza.printCard()
 
   # #Get customer information
   # customer = initCustomer()
